@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Saran's project/assets/Css/product_detail.css">
+    <link rel="stylesheet" href="/Saran's project/assets/Css/header.css">
+    <link rel="stylesheet" href="/Saran's project/assets/Css/add_to_cart.css">
+    <title>product_detail_page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Dancing+Script:wght@400;600&family=Poppins:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+
+</head>
+<script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
+<body>
+    <!-- <h2 class="prod_name">Products</h2>   
+    <p class="">Home/Products/Product detail</p> -->
+    <section class="main-img">
+
+    </section>
+
+    <hr>
+    <footer>
+        <div class="row">
+            <div class="foot_logo">
+                <img src="/Saran's project/assets/img/MissNatura_logo.png" alt="website logo">
+            </div>
+            <div class="Quick_links">
+                <h2>Quick Links</h2>
+                <ul>
+                    <a href="">
+                        <li>Shop</li>
+                    </a>
+                    <a href="">
+                        <li>About</li>
+                    </a>
+                    <a href="">
+                        <li>contact</li>
+                    </a>
+                </ul>
+            </div>
+            <div class="Legal">
+                <h2>Legal</h2>
+                <ul>
+                    <a href="">
+                        <li>Shipping Policy</li>
+                    </a>
+                    <a href="">
+                        <li>Return and Refund.</li>
+                    </a>
+                    <a href="">
+                        <li>Privacy Policy.</li>
+                    </a>
+                </ul>
+            </div>
+            <div class="contact_us">
+                <h2>Contact us</h2>
+                <div class="social_icons">
+                    <a href=""><i class="fa-brands fa-facebook"></i></a>
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    <a href=""><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href=""><i class="fa-brands fa-twitter"></i></a>
+                </div>
+
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="/Saran's project/JS/components/header.js"></script>
+
+    <script>
+
+        const productData = JSON.parse(localStorage.getItem("products"));
+        const key = new URLSearchParams(window.location.search).get("product_id");
+
+        function findId(e) {
+            return e.productid == key
+
+        }
+
+        let productDetail = productData.find(findId)
+
+        const detailedCard = `
+                <div class="seperate">
+            <div>
+                <img class="ban-img" src="${productDetail.prodimg}">
+            </div>
+            <a href="#>"<i class="Wishlist far fa-heart" style='font-size:36px; color:#263e3e'></i></a>
+            <div class="prodDetail">
+                <h2> ${productDetail.prodname}</h2>
+                <p class="amt"> <b>₹${productDetail.prodrange}</b> </p>
+                <div>
+                    <h3>Description</h3>
+                        <div class="container">
+                            <p class="info">${productDetail.description} </p>
+                        </div>
+                </div>
+                <h3 class="quantity">Weight - ${productDetail.weight}${productDetail.weigthCtgry}</h3>
+               
+
+              <button class="add-to-cart">Add to cart</button>     
+            </div>
+        </div>
+
+    </section>
+
+    <section class="description">
+        <div>
+            <button class="accordion"><i class="arrow_down"></i>Weight</button>
+            <div class="drpdown"> 
+                <p>${productDetail.weight}${productDetail.weigthCtgry}</p>
+            </div>
+        </div>
+        <hr class="bottom-line">
+        <div>
+            <button class="accordion"><i class="arrow_down"></i>Ingredients</button>
+            <div class="drpdown"> 
+                <p>${productDetail.ingredients}</p>
+            </div>
+        </div>
+        <hr class="bottom-line">
+        <div>
+            <button class="accordion"><i class="arrow_down"></i>Benefits</button>
+            <div class="drpdown"> 
+                <p>${productDetail.benefits}</p>
+            </div>
+        </div>
+        <hr class="bottom-line">
+        <div>
+            <button class="accordion"><i class="arrow_down"></i>How to use</button>
+            <div class="drpdown"> 
+                <p>${productDetail.howtouse}</p>
+            </div>
+        </div>
+        <hr class="bottom-line">
+        <div>
+            <button class="accordion"><i class="arrow_down"></i>Shelf Life</button>
+            <div class="drpdown"> 
+                <p>${productDetail.selflife}</p>
+            </div>
+        </div>
+        <hr class="bottom-line">
+            `
+        document.querySelector("section.main-img").insertAdjacentHTML("beforeend", detailedCard);
+
+        //-----------------------------------accordian-----------------------------------//
+
+        const acc = document.getElementsByClassName("accordion");
+        let i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                const drpdown = this.nextElementSibling;
+                if (drpdown.style.display === "block") {
+                    drpdown.style.display = "none";
+                    drpdown.style.flex;2
+                } else {
+                    drpdown.style.display = "block";
+                }
+            });
+        }
+
+        // ----------------------------------cart array----------------------------------------//
+
+        document.querySelector(".add-to-cart").addEventListener("click", cart)
+
+        let productId;
+        productId = new URLSearchParams(window.location.search).get("product_id")
+        function cart() {
+
+            let userunique = JSON.parse(localStorage.getItem("unique_id"));
+
+            const order_items = JSON.parse(localStorage.getItem("products"));
+
+            let cart_id = JSON.parse(localStorage.getItem("Cart"));
+
+            let userID = JSON.parse(localStorage.getItem("unique_id"));
+        if(userID){
+            let amount = document.querySelector(".amt").innerText.replace(/₹/g,"");
+            let price = amount;
+            const cart = JSON.parse(localStorage.getItem("Cart")) ?? [];
+
+            const alreadyexist = cart.length && JSON.parse(localStorage.getItem("Cart")).some((e) =>
+                e.ProdId.toLowerCase() === productId.toLowerCase() &&
+                e.userId.toLowerCase() === userunique.toLowerCase()
+            );
+
+            if (!alreadyexist) {
+                cart.push({
+                    "ProdId": productId,
+                    "userId": userID,
+                    "cartId": uuidv4(),
+                    "price": price,
+                    "quantity": 1
+                })
+
+                localStorage.setItem("Cart", JSON.stringify(cart));
+            }
+            window.location.href = "/Saran's project/pages/add_to_cart.html"
+        }
+        else{
+            alert("SignUp before add to cart");
+        }
+
+            // const find_user = cart_id.filter((e) => e.userId === userunique);
+
+            // // console.log(find_user)
+            // const cart_list1 = order_items.filter((product) =>
+            //     find_user.some((uuid) => uuid.ProdId === product.productid)
+            // );
+
+            // localStorage.setItem('cart_list', JSON.stringify(cart_list1))
+
+            // let cart_list2 = JSON.parse(localStorage.getItem('cart_list'))
+            // for (let i = 0; i < cart_list2.length; i++) {
+            //     cart_list2[i].quantity_ordered = 1;
+            //     cart_list2[i].cartId = cart_id[i].cartId;
+            //     localStorage.setItem('cart_list', JSON.stringify(cart_list2))
+            // }
+
+        }
+
+        document.querySelector(".Wishlist").addEventListener("click", wishlist)
+        function wishlist() {
+            // let productid = new URLSearchParams(window.location.search).get("product_id")
+            let wishlist = JSON.parse(localStorage.getItem("wishlist")) ?? [];
+            let prod = JSON.parse(localStorage.getItem("products"))
+            let user_email = JSON.parse(localStorage.getItem("unique_id"));
+    
+        if(user_email){
+            let check;
+            wishlist.find((f) => {
+                if (user_email == f["useremail"] && f["productId"] ==
+                    productId) {
+                    check = 1
+                }
+                else {
+                    check = 0;
+                }
+            }
+            )
+            if (check == 1) {
+                alert("This product is already there")
+            }                                                                                                                                                                                                   
+            else {
+                let user_wishlist = {};
+                user_wishlist["productId"] = productId,
+                    user_wishlist["productname"] = productDetail.prodname,
+                    user_wishlist["useremail"] = user_email,
+                    user_wishlist["productimage"] = productDetail.prodimg,
+                    user_wishlist["productprice"] = productDetail.prodrange,
+                    wishlist.push(user_wishlist);
+                localStorage.setItem("wishlist", JSON.stringify(wishlist));
+                alert("product is added");
+            }
+        }
+        else{
+            alert("SignUp before add to wishlist");
+        }
+    }
+
+        // if (!exist){
+        //     wishlist.push({
+
+        //         "productId" : productid,
+        //         "userid" : userid,
+        //         "productname" : prod[i].prodname,
+        //         "productimage" : prod[i].prodimg,
+        //         "productprice" : prod[i].prodrange
+        //     })
+        // }
+        // localStorage.setItem("wishlist", JSON.stringify(wishlist));
+
+        // let uniqueuser = JSON.parse(localStorage.getItem("unique_id"));
+        // let wishlist_total = JSON.parse(localStorage.getItem("wishlist"));
+        // const find = wishlist_total.filter((e) => e.userid === uniqueuser);
+        // console.log(find);
+
+
+        // let activeuser =  JSON.parse(localStorage.getItem("unique_id"));
+        // const totalproduct = JSON.parse(localStorage.getItem("products"));
+        // let wishlist_id = JSON.parse(localStorage.getItem("wishlist"));
+
+        // const find = wishlist_id.filter((wish) =>wish.userid === activeuser);
+
+        // const wish_list = totalproduct.filter((e) =>
+        //     find.some((uuid) => uuid.productId === e.productid)
+        // );
+
+        // localStorage.setItem("wholewishlist", JSON.stringify(wish_list));
+
+
+        //---------------------------quantity increment--------------------------
+
+        let increment = document.querySelectorAll(".plus_1");
+        increment.forEach(e => {
+            e.addEventListener("click", function quantity() {
+                const parent = this.closest(".single_prod");
+                // // console.log(parent);
+                const num = parent.querySelector(".num");
+                // console.log(num);
+                let n = parseInt(num.textContent);
+                if (n < 30) {
+                    n += 1
+                };
+                num.textContent = n;
+                const parentBox = this.closest(".inc-dec-button");
+                //console.log();
+                const idButton = parentBox.querySelector(".qty-btn").getAttribute("data-btn_id");
+                console.log(idButton);
+                const cart_product = JSON.parse(localStorage.getItem("cart_list"));
+                console.log(cart_product)
+                function find_cart(e) {
+                    return e.cartId == idButton
+                };
+                const cart_quantity = cart_product.find(find_cart);
+                console.log(cart_quantity);
+                if (cart_quantity) {
+                    cart_quantity.quantity_ordered = n.toString()
+                    localStorage.setItem("cart_list", JSON.stringify(cart_product))
+                };
+            })
+        });
+
+    let decrement = document.querySelectorAll(".minus_1");
+        decrement.forEach(value => {
+            value.addEventListener("click", function dquantity() {
+                const parent = this.closest(".single_prod");
+                const num = parent.querySelector(".num");
+                let n = parseInt(num.textContent);
+                if (n > 1) {
+                    n -= 1;
+                }
+                num.textContent = n;
+                const parentBox = this.closest(".inc-dec-button");
+                const idButton = parentBox
+                    .querySelector(".qty-btn")
+                    .getAttribute("data-btn_id");
+                console.log(idButton);
+                const cart_product = JSON.parse(localStorage.getItem("cart_list"));
+                console.log(cart_product);
+                function find_cart(e) {
+                    return e.cartId == idButton;
+                }
+                const cart_quantity = cart_product.find(find_cart);
+                console.log(cart_quantity);
+                if (cart_quantity) {
+                    cart_quantity.quantity_ordered = n.toString();
+                    localStorage.setItem("cart_list", JSON.stringify(cart_product));
+                }
+            })
+        });
+
+    </script>
+</body>
+
+</html>

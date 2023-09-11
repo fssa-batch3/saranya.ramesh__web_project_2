@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Saran's project/assets/Css/signup.css">
+    <link rel="stylesheet" href="/Saran's project/assets/Css/header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Sign in page</title>
+</head>
+
+<body>
+   
+
+    <div class="container">
+        <div class="container-form">
+            <form action="" class="sign-form" id="sign-form" autocomplete="on">
+                <h1 class="form-title">Sign In</h1>
+                <p class="form-caption">Feed your skin with Nature!!</p>
+                <button class="google-sign-btn"><i class="fa fa-google"></i> Sign In with Google</button>
+
+                <br>
+
+                <div class="google-guide-container">
+                    <div class="hr-left"></div>
+                    <p class="guide-google">or Sign In with Email</p>
+                    <div class="hr-right"></div>
+                </div>
+
+                <label for="email">Email<span class="star-required">*</span></label>
+                <input type="email" name="email" id="email" value="saran@gmail.com" placeholder="mail@website.com"
+                    pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+                    >
+
+                <label for="password">Password<span class="star-required">*</span></label>
+                <input type="password" name="password" value="Saran@123" id="password" placeholder="Min. 8 character"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  />
+                <button type="submit" id="submit">Sign In</button>
+
+            </form>
+
+
+
+        </div>
+    </div>
+
+    <script src="/Saran's project/JS/sign in.js"></script>
+    <script src="/Saran's project/JS/header.js"></script>
+</body>
+
+</html>

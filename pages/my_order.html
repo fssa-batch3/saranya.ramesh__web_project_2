@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/Saran's project/assets/Css/my_order.css" />
+    <link rel="stylesheet" href="/Saran's project/assets/Css/header.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>My order</title>
+  </head>
+  <body>
+<h1 class="head"> My Orders</h1>
+<div class="whole_product">
+
+</div>
+    <!-- <div class="prod_info"> -->
+      <!-- <h2> Order Status : <img class="status_img" src="/Saran's project/assets/img/delivered symbol.jpg" width="50px"> Delivered on April 30</h2>
+      <hr>
+      <div class="single_prod">
+        <div class="prof_img">
+          <img
+            src="https://missnatura.in/wp-content/uploads/2023/02/IMG-20230222-WA0003.jpg"
+            width="150px"
+            height="130px"
+            alt="Rosemery leaves"
+          />
+        </div>
+        <div class="status">
+          <p>Dried Rosemery leaves - 100g</p>
+          <p>Quantity - 1</p>
+          <p>Rate your product</p>
+          <div class="icons">
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+        </div>
+      </div> -->
+    <!-- </div> -->
+
+    
+      <script src="/Saran's project/JS/components/header.js"></script>
+      <script>
+
+        let myOrder = JSON.parse(localStorage.getItem("myOrders"));
+        let cart = JSON.parse(localStorage.getItem("Cart"));
+        let uniqueid = JSON.parse(localStorage.getItem("unique_id"));
+
+        
+        // const single_user = myOrder.filter((e) => e.userId === uniqueid );
+        // console.log(single_user);
+        for(let i = 0; i < myOrder.length; i++){
+          if(myOrder[i].userId === uniqueid){
+        let orders = `
+        <div class="prod_info">
+        <h2> Order Status : <img class="status_img" src="/Saran's project/assets/img/loading.jpg" width="50px"> Will Deliver with in 2 days </h2>
+      <hr>
+      <div class="single_prod">
+        <div class="prof_img">
+          <img
+            src="${myOrder[i].prodimg}"
+            width="150px"
+            height="130px"
+            alt="Rosemery leaves"
+          />
+        </div>
+        <div class="status">
+          <p>${myOrder[i].prodname} - ${myOrder[i].prodweight}${myOrder[i].prodweightcty}</p>
+          <p>Quantity - ${myOrder[i].prodquantity}</p>
+          <p>Rate your product</p>
+          <div class="icons">
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+        </div>
+      </div>
+      </div>
+          `
+          document.querySelector(".whole_product").insertAdjacentHTML("afterbegin", orders)
+    }
+  }
+      </script>
+  </body>
+</html>

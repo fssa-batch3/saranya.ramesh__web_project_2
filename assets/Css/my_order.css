@@ -1,0 +1,36 @@
+.header-img img {
+    width: 16%;
+}
+.header-img {
+    margin-left: 200px;
+}
+.head{
+    margin:80px 0px 0px 100px;
+}
+.single_prod{
+    display: flex;
+    margin-top:20px;
+}
+.prod_info{
+    border-style: groove;
+    padding: 30px 50px;
+    margin: 80px 100px;
+}
+.prod_info h2{
+    margin:-3px 0px 20px;
+    /* font-family:'Montserrat', sans-serif;  */
+}
+.prof_img{
+    justify-content: center;
+    align-items: center;
+}
+.status{
+    margin:-2px 50px 0px 50px;
+}
+.status p{
+    margin: 10px 0px;
+}
+.status_img{
+    position: relative;
+    top:15px;
+}

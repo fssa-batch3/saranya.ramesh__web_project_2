@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=, initial-scale=1.0">
+        <title>add category</title>
+        <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Poppins:ital,wght@0,400;1,300&display=swap"
+    rel="stylesheet">
+        <style>
+.container{
+    border-style: groove;
+    padding:50px;
+    margin:25%;
+    border-radius: 2px;
+}
+label{
+    font-size: xx-large;
+    font-family: 'Poppins', sans-serif;
+}
+input{
+    padding: 15px 120px;
+    border-radius: 50px;
+    margin: 20px 0px;
+}
+button{
+    padding: 7px 25px;
+    background-color: #263e3e;
+    color:white;
+}
+        </style>
+    </head>
+    <body>
+        <form>
+            <div class="container">
+            <label> Enter category</label><br>
+            <input id="prodcty" type="text"><br>
+            <button type="submit"> Submit </button>
+            </div>
+        </form>
+        <script>
+        const category_btn = document.querySelector("button");
+        category_btn.addEventListener("click", function () {
+  const cty_type = document.getElementById("prodcty").value;
+
+          const cate = JSON.parse(localStorage.getItem("category_list")) || [];
+          console.log(cate.length);
+
+  if (cty_type != "") {
+            cate.push({
+              category: cty_type,
+              id: cate.length + 1,
+            });
+          }
+  localStorage.setItem("category_list", JSON.stringify(cate));
+        });
+    </script>
+    </body>
+</html>

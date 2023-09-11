@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/Saran's project/assets/Css/header.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Poppins:ital,wght@0,400;1,300&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      font-family: Arial;
+      font-size: 17px;
+      padding: 8px;
+    }
+
+    .row {
+      display: -ms-flexbox;
+      /* IE10 */
+      display: flex;
+      -ms-flex-wrap: wrap;
+      /* IE10 */
+      flex-wrap: wrap;
+      margin: 0 200px;
+    }
+
+    .row2 {
+      display: -ms-flexbox;
+      /* IE10 */
+      display: flex;
+      -ms-flex-wrap: wrap;
+      /* IE10 */
+      flex-wrap: wrap;
+      margin: 0 200px;
+    }
+
+    .col-25 {
+      -ms-flex: 25%;
+      /* IE10 */
+      flex: 25%;
+    }
+
+    .col-50 {
+      -ms-flex: 50%;
+      /* IE10 */
+      flex: 50%;
+    }
+
+    .col-50 h3 {
+      margin: 25px 0;
+      font-size: x-large;
+    }
+    .col-75 {
+      -ms-flex: 75%;
+      /* IE10 */
+      flex: 75%;
+      margin-top: 75px;
+    }
+    .container {
+      background-color: #f2f2f2;
+      padding: 5px 20px 15px 20px;
+      border: 1px solid lightgrey;
+      border-radius: 3px;
+    }
+    input[type=text] {
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    label {
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .icon-container {
+      margin-bottom: 20px;
+      padding: 7px 0;
+      font-size: 24px;
+    }
+
+    #btn {
+      background-color: #04AA6D;
+      color: white;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      width: 100%;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 17px;
+    }
+
+    #btn:hover {
+      background-color: #45a049;
+    }
+
+    a {
+      color: #2196F3;
+    }
+
+    hr {
+      border: 1px solid lightgrey;
+    }
+
+    span.price {
+      float: right;
+      color: grey;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .container2 {
+      width: 100%;
+      height: 100vh;
+      visibility: hidden;
+      position: absolute;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgb(233, 231, 231);
+    }
+
+    .btn {
+      padding: 10px 60px;
+      border: 0;
+      outline: none;
+      cursor: pointer;
+      background: #fff;
+      font-size: 22px;
+      font-weight: 500;
+      border-radius: 30px;
+    }
+
+    .popup {
+      width: 400px;
+      background: #fff;
+      border-radius: 6px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%)scale(0.1);
+      text-align: center;
+      padding: 0px 30px 30px;
+      color: #333;
+      visibility: hidden;
+      transition: transform 0.4s, top 0.4s;
+    }
+
+    .open-popup {
+      visibility: visible;
+      top: 50%;
+      transform: translate(-50%, -50%)scale(1);
+    }
+
+    .popup img {
+      width: 100px;
+      margin-top: -50px;
+      border-radius: 50%;
+      box-shadow: 0 2px 5px(0 0 0 0.2px);
+    }
+
+    .popup h2 {
+      font-size: 38px;
+      font-weight: 500;
+      margin: 30px 0px 10px;
+    }
+
+    .popup p {
+      margin-top: 15px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .popup button {
+      width: 100%;
+      margin-top: 40px;
+      padding: 10px 0;
+      background: #04AA6D;
+      color: #fff;
+      border: 0;
+      outline: none;
+      font-size: 18px;
+      border-radius: 4px;
+      cursor: pointer;
+      box-shadow: 0 5px 5px(0 0 0 0.2px);
+    }
+
+    /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+    @media (max-width: 800px) {
+      .row {
+        flex-direction: column-reverse;
+      }
+
+      .col-25 {
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2></h2>
+  <p></p>
+  <div class="row">
+    <div class="col-75">
+      <div class="container">
+
+
+        <div class="row">
+          <div class="col-50">
+            <h3>Billing Address</h3>
+            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
+            <label for="email"><i class="fa fa-envelope"></i> Email</label>
+            <input type="text" id="email" name="email" placeholder="john@example.com">
+            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
+            <label for="city"><i class="fa fa-institution"></i> City</label>
+            <input type="text" id="city" name="city" placeholder="New York">
+
+            <div class="row2">
+              <div class="col-50">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state" placeholder="NY">
+              </div>
+              <div class="col-50">
+                <label for="zip">Pincode</label>
+                <input type="text" id="pincode" name="pincode" placeholder="600063">
+              </div>
+            </div>
+            <button id="btn" type="submit" onclick="openpopup()">Place Order</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container2">
+
+    <div class="popup" id="popup">
+      <img src="/Saran's project/assets/img/404-tick.png">
+      <h3>Thank you!</h3>
+      <p>Successfully orederd. Thank You for ordering in our website!!</p>
+      <a href="/Saran's project/pages/my_order.html"><button type="button" onclick="closepopup()">View your
+          order</button></a>
+    </div>
+  </div>
+  <script>
+    let popup = document.getElementById("popup");
+
+    function openpopup() {
+      popup.classList.add("open-popup");
+    }
+    function closepopup() {
+      popup.classList.remove("open-popup");
+    }
+
+    let user = JSON.parse(localStorage.getItem("users"));
+    let active_user = JSON.parse(localStorage.getItem("unique_id"))
+    let button = document.getElementById("btn");
+
+    let cart_id = JSON.parse(localStorage.getItem("Cart"));
+    const find_user = cart_id.filter((e) => e.userId === active_user);
+    const productList = JSON.parse(localStorage.getItem("products")) || [];
+
+    const cart_list = find_user.map((data) =>
+      productList.find((product) => product.productid === data.ProdId));
+    // console.log(cart_list)
+
+    button.addEventListener("click", order)
+    function order() {
+      const myOrder = JSON.parse(localStorage.getItem("myOrders")) ?? [];
+
+      for (let i = 0; i < cart_list.length; i++) {
+
+        myOrder.push({
+          "prodquantity": find_user[i].quantity,
+          "prodimg": cart_list[i].prodimg,
+          "prodname": cart_list[i].prodname,
+          "prodweight": cart_list[i].weight,
+          "prodweightcty": cart_list[i].weigthCtgry,
+          "userId": find_user[i].userId,
+        })
+      }
+      localStorage.setItem("myOrders", JSON.stringify(myOrder));
+    }
+
+    function address_data(e) {
+      return e.email == active_user;
+    }
+
+    const useraddress = user.find(address_data)
+
+    document.getElementById("fname").value = useraddress.name;
+    document.getElementById("email").value = useraddress.email;
+    document.getElementById("adr").value = useraddress.address;
+    document.getElementById("city").value = useraddress.City;
+    document.getElementById("state").value = useraddress.state;
+    document.getElementById("pincode").value = useraddress.pincode;
+
+
+    // let active_user = JSON.parse(localStorage.getItem("unique_id"))
+    document.getElementById("btn").addEventListener("click", () => {
+
+      let all_cart = JSON.parse(localStorage.getItem("Cart"));
+      let user_1 = all_cart.filter((e) => e.userId !== active_user);
+      console.log(user_1);
+
+      for (let j = 0; j < all_cart.length; j++) {
+        if (all_cart[j]["useremail"] == active_user && all_cart[j]["productId"] == all_cart[j]["productId"]) {
+          all_cart.splice(i, 1);
+          localStorage.setItem("Cart", JSON.stringify(all_cart));
+          location.reload();
+        }
+      }
+
+      localStorage.setItem("Cart", JSON.stringify(user_1));
+    })
+
+  </script>
+  <script src="/Saran's project/JS/components/header.js"></script>
+</body>
+
+</html>

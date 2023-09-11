@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="/Saran's project/assets/Css/product_list.css">
+    <link rel="stylesheet" href="/Saran's project/assets/Css/header.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Product_list</title>
+</head>
+<body>
+   
+        <h2 class="prod_name">Products</h2>
+        <p class="navigation">Home/ Products</p>
+
+        <section class="all_products">
+
+         
+<!-- 
+
+            <div class="Prod_card">
+                <a href=""><img src="https://missnatura.in/wp-content/uploads/2023/02/IMG-20230222-WA0003.jpg"
+                        alt="product_img"></a>
+                <a href="">
+                    <p>Dried Rosemery Leaves - 100g</p>
+                </a>
+                <h5>hair care</h5>
+                <div class="icons">                                                                             
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <h3><s>₹500OFF</s>
+                    ₹120.00
+                </h3>
+                <a href=""><button>Add to Cart</button></a>
+            </div> -->
+
+        </section> 
+
+        <hr>
+        <footer>
+            <div class="row">
+                <div class="foot_logo">
+                    <img src="/Saran's project/assets/img/MissNatura_logo.png" alt="website logo">
+                </div>
+                <div class="Quick_links">
+                    <h2>Quick Links</h2>
+                    <ul>
+                        <a href="">
+                            <li>Shop</li>
+                        </a>
+                        <a href="">
+                            <li>About</li>
+                        </a>
+                        <a href="">
+                            <li>contact</li>
+                        </a>
+                    </ul>
+                </div>
+                <div class="Legal">
+                    <h2>Legal</h2>
+                    <ul>
+                        <a href="">
+                            <li>Shipping Policy</li>
+                        </a>
+                        <a href="">
+                            <li>Return and Refund.</li>
+                        </a>
+                        <a href="">
+                            <li>Privacy Policy.</li>
+                        </a>
+                    </ul>
+                </div>
+                <div class="contact_us">
+                    <h2>Contact us</h2>
+                    <div class="social_icons">
+                        <a href=""><i class="fa-brands fa-facebook"></i></a>
+                        <a href=""><i class="fa-brands fa-instagram"></i></a>
+                        <a href=""><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href=""><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+    
+    
+                </div>
+            </div>
+        </footer>
+
+<script>
+
+const allProducts = JSON.parse(localStorage.getItem("products"));
+console.log(allProducts)
+
+const Category = 
+ new URLSearchParams(window.location.search).get("category") ||
+ new URLSearchParams(window.location.search).get("skinType") ||
+ new URLSearchParams(window.location.search).get("prodCty".replace("/%20/g", " "));
+
+ console.log(Category);
+
+
+const filterCard = allProducts.filter((e) => e.prodCtgry ===Category); 
+
+        for(let i=0;i<allProducts.length;i++){
+            if(Category === allProducts[i].prodCtgry || Category ===allProducts[i].skinType || Category === allProducts[i].prodType){
+                
+        let singleProduct = `<div class="Prod_card">
+                <a href=""><img src="${allProducts[i].prodimg}" alt="product_img"/></a>
+                <a href="">
+                    <p>${allProducts[i].prodname}</p>
+                </a>
+                <h5>${allProducts[i].prodType}</h5>
+                <div class="icons">
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <h3>
+                    ₹${allProducts[i].prodrange} 
+                </h3>
+                <a href="/Saran's project/pages/product_detail page.html?product_id=${allProducts[i].productid}"><button>View Details</button></a>
+            </div>`
+            document.querySelector("section.all_products").insertAdjacentHTML("beforeend", singleProduct);
+        }
+    }
+        
+</script>
+<script src="/Saran's project/JS/components/header.js"></script>
+</body>
+</html>

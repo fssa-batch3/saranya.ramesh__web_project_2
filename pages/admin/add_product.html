@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/Saran's project/assets/Css/add_product.css" />
+    <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
+    <title>Add product</title>
+  </head>
+  <body>
+    <form role="form" onsubmit="upload(event)" autocomplete="on">
+      <div class="form-bg">
+        <h3>Enter details!!</h3>
+
+        <div class="form">
+            <input
+            placeholder="Product Image"
+            name="product image"
+            type="text"
+            id="product_img"
+            value="/Saran's project/assets/img/body butter.jfif"
+            required/>
+
+          <input
+            pattern = "^(?!\s)[a-zA-Z\s]+$"
+            placeholder="Product Name"
+            maxlength="50"
+            name="form-name"
+            type="text"
+            id="prodName"
+            value="Body Butter"
+            required/>
+          <input
+            
+            placeholder="Price"
+            maxlength="9"
+            name="Price Range"
+            type="text"
+            id="priceRange"
+            value="350"
+            required/>
+          <!-- <input placeholder="Quantity"  name="quantity" type="text"> -->
+
+          <select id="prod_type" name="prod_type" class="prod_type">
+            <option value="">Product type</option>
+            <option>Body care</option>
+            <option>Hair care</option>
+            <option>Face care</option>
+          </select>
+
+          <select id="skin_type" name="skin_type" class="skin_type">
+            <option value="">Skin type</option>
+            <option>Oily</option>
+            <option>Normal</option>
+            <option>Dry</option>
+            <option>Sensitive</option>
+          </select>
+
+          <select id="prod_ctgry" name="prod_ctgry" class="prod_ctgry">
+            <option value="">Category</option>
+            <option>Serum</option>
+            <option>Toner</option>
+            <option>Creams</option>
+            <option>FaceWash</option>
+          </select>
+
+          <select id="weight" name="weight" class="weight">
+            <option value="">weight</option>
+            <option>50</option>
+            <option>100</option>
+            <option>150</option>
+            <option>200</option>
+            <option>250</option>
+          </select>
+          <select id="category" name="choose" class="choice">
+            <option value="">choose</option>
+            <option>ml</option>
+            <option>g</option>
+          </select>
+          <textarea
+            id="description"
+            placeholder="Description"
+            maxlength="200"
+            name="description"
+            type="text"
+            value="  It will help you protect your skin from dryness as well as rough or patchy skin"
+          ></textarea>
+          <input
+            id="Ingredients"
+            placeholder="Ingredients"
+            name="Ingredients"
+            type="text"
+            value=" Body butter typically contains a combination of naturally derived butters like cocoa butter, shea butter, or mango butter."
+          />
+          <input
+            id="Benefits"
+            placeholder="Benefits"
+            name="Benefits"
+            type="text"
+            value="Prevent dryness, keeps your skin smooth"
+          />
+          <input
+            id="how-to-use"
+            placeholder="How to use"
+            name="How-to-use"
+            type="text"
+            value="Take adequate amount of the product and apply all over your body after bath"
+          />
+          <input
+            id="self-life"
+            placeholder="Self Life"
+            name="Self Life"
+            type="text"
+            value="6 months"
+          />
+        </div>
+    </div>
+    <button type="submit" class="button" >Upload Product</button>
+      
+    </form>
+   
+    <script>
+   
+      function upload(e) {
+        e.preventDefault();
+        const prodImg = document.getElementById("product_img").value;
+        const productName = document.getElementById("prodName").value;
+        const priceRange = document.getElementById("priceRange").value;
+        const weight = document.getElementById("weight").value;
+        const category = document.getElementById("category").value;
+        const description = document.getElementById("description").value;
+        const Ingredients = document.getElementById("Ingredients").value;
+        const benefits = document.getElementById("Benefits").value;
+        const howToUse = document.getElementById("how-to-use").value;
+        const selfLife = document.getElementById("self-life").value;
+        const prodType = document.getElementById("prod_type").value;
+        const skinType = document.getElementById("skin_type").value;
+        const prodctgry = document.getElementById("prod_ctgry").value;
+        const productid = uuidv4();
+        console.log(selfLife);
+
+        const details = JSON.parse(localStorage.getItem("products")) || [];
+        const exist = details.some((data) => data.prodname.toLowerCase() === productName.toLowerCase());
+   
+        if (!exist) {
+          details.push({
+            "prodimg": prodImg,
+            "prodname": productName,
+            "prodrange": priceRange,
+            "weight": weight,
+            "weigthCtgry": category,
+            "description": description,
+            "ingredients": Ingredients,
+            "benefits": benefits,
+            "howtouse": howToUse,
+            "selflife": selfLife,
+            "prodType": prodType,
+            "skinType": skinType,
+            "prodCtgry": prodctgry,
+            "productid": productid
+          });
+          localStorage.setItem("products", JSON.stringify(details));
+          alert("Product added successfully!!");
+        } else {
+          alert("Sorry, place name has already exist");
+        }
+      }
+    </script>
+  </body>
+</html>
