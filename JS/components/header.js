@@ -65,7 +65,7 @@ if (UniqueId1) {
   logout?.addEventListener("click", () => {
     alert("Are you sure, Do you want Logout?")
     localStorage.removeItem("unique_id");
-    window.location.href="/index.html"
+    window.location.href="p/index.html"
     // document.body.innerHTML = BeforeLogin;
   });
 
