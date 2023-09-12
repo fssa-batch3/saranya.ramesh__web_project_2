@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="/Saran's project/assets/Css/product_list.css">
-    <link rel="stylesheet" href="/Saran's project/assets/Css/header.css">
+    <link rel="stylesheet" href="/assets/Css/product_list.css">
+    <link rel="stylesheet" href="/assets/Css/header.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
@@ -48,7 +48,7 @@
         <footer>
             <div class="row">
                 <div class="foot_logo">
-                    <img src="/Saran's project/assets/img/MissNatura_logo.png" alt="website logo">
+                    <img src="/assets/img/MissNatura_logo.png" alt="website logo">
                 </div>
                 <div class="Quick_links">
                     <h2>Quick Links</h2>
@@ -126,13 +126,13 @@ const filterCard = allProducts.filter((e) => e.prodCtgry ===Category);
                 <h3>
                     ₹${allProducts[i].prodrange} 
                 </h3>
-                <a href="/Saran's project/pages/product_detail page.html?product_id=${allProducts[i].productid}"><button>View Details</button></a>
+                <a href="/pages/product_detail page.html?product_id=${allProducts[i].productid}"><button>View Details</button></a>
             </div>`
             document.querySelector("section.all_products").insertAdjacentHTML("beforeend", singleProduct);
         }
     }
         
 </script>
-<script src="/Saran's project/JS/components/header.js"></script>
+<script src="/JS/components/header.js"></script>
 </body>
 </html>

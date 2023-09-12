@@ -254,9 +254,9 @@
         </div>
     </footer>
     <!-- <a href="/Saran's project/pages/product_list.html"></a> -->
-    <script src="/Saran's project/JS/components/header.js"></script>
-    <script src="/Saran's project/JS/main.js"></script>
-    <script src="/Saran's project/JS/default.js"></script>
+    <script src="JS/components/header.js"></script>
+    <script src="JS/main.js"></script>
+    <script src="JS/default.js"></script>
     <script>
         const catetype = JSON.parse(localStorage.getItem("CategoryType"));
 
@@ -289,7 +289,7 @@
 
             const Hotsellers = `
             <div class="Prod_card">
-                <a href="/Saran's project/pages/product_detail page.html?product_id=${hotsellers[i].productid}"><img src="${hotsellers[i].prodimg}"
+                <a href="pages/product_detail page.html?product_id=${hotsellers[i].productid}"><img src="${hotsellers[i].prodimg}"
                         alt="${hotsellers[i].prodname}"></a>
                 <a href="">
                     <p>${hotsellers[i].prodname} -${hotsellers[i].weight}${hotsellers[i].weigthCtgry} </p>
@@ -303,7 +303,7 @@
                     <i class="fa-regular fa-star"></i>
                 </div>
                 <h3>₹${hotsellers[i].prodrange}</h3>
-                <a href="/Saran's project/pages/product_detail page.html?product_id=${hotsellers[i].productid}"><button>View Details</button></a>
+                <a href=pages/product_detail page.html?product_id=${hotsellers[i].productid}"><button>View Details</button></a>
             </div>
             `
             document.querySelector(".products_list").insertAdjacentHTML("beforeend", Hotsellers);
@@ -317,7 +317,7 @@
     <div class="Prod_card">
                 <a href=""><img src="${Peoplechoice[i].prodimg}"
                         alt="${Peoplechoice[i].prodname}"></a>
-                <a href="/Saran's project/pages/product_detail page.html?product_id=${Peoplechoice[i].productid}">
+                <a href="pages/product_detail page.html?product_id=${Peoplechoice[i].productid}">
                     <p>${Peoplechoice[i].prodname} -${Peoplechoice[i].weight}${Peoplechoice[i].weigthCtgry}</p>
                 </a>
                 <h5>${Peoplechoice[i].prodType}</h5>
@@ -330,7 +330,7 @@
                 </div>
                 <h3>₹${Peoplechoice[i].prodrange}
                 </h3>
-                <a href="/Saran's project/pages/product_detail page.html?product_id=${Peoplechoice[i].productid}"><button>View Details</button></a>
+                <a href="pages/product_detail page.html?product_id=${Peoplechoice[i].productid}"><button>View Details</button></a>
             </div>
     `
     document.querySelector(".peopleprod_list").insertAdjacentHTML("beforeend", peopleprod);
