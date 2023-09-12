@@ -20,7 +20,7 @@ function signin() {
     });
     if (res == 1) {
       alert("you're succesfully login");
-      window.location.href = "/saran's project/index.html";
+      window.location.href = "/index.html";
     }
     else {
       alert("Invaild users")

@@ -16,7 +16,7 @@ ingredients
 "pure and clean neem leaves, essential oil, etc....",
 prodimg
 : 
-"/Saran's project/assets/img/NEEM-SHAMPOO.jpg",
+"/assets/img/NEEM-SHAMPOO.jpg",
 prodname
 : 
 "Neem shampoo",
@@ -47,7 +47,7 @@ ingredients
 "Pure kashmiri saffron with aloe vera gel",
 prodimg
 : 
-"/Saran's project/assets/img/saffron gel.webp",
+"/assets/img/saffron gel.webp",
 prodname
 : 
 "Saffron Gel",
@@ -83,7 +83,7 @@ prodType
 "Face care",
 prodimg
 : 
-"/Saran's project/assets/img/toner.jfif",
+"/assets/img/toner.jfif",
 prodname
 : 
 "Vetiver Toner",
@@ -126,7 +126,7 @@ prodType
 "Face care",
 prodimg
 : 
-"/Saran's project/assets/img/rose water.jpg",
+"/assets/img/rose water.jpg",
 prodname
 : 
 "RoseWater toner ",
@@ -170,7 +170,7 @@ prodType
 "Face care",
 prodimg
 : 
-"/Saran's project/assets/img/ANTI-ACNE-SERUM.jpg",
+"/assets/img/ANTI-ACNE-SERUM.jpg",
 prodname
 : 
 "Antiacne serum",
@@ -214,7 +214,7 @@ prodType
 "Face care",
 prodimg
 : 
-"/Saran's project/assets/img/papaya facewash.jpg",
+"/assets/img/papaya facewash.jpg",
 prodname
 : 
 "Papaya Facewash",

@@ -37,7 +37,7 @@ function register(e) {
             localStorage.setItem("users", JSON.stringify(users));
             document.querySelector("form").reset();
             alert("Account created Successfully");
-            window.location.href= "/Saran's project/pages/sign_in.html";
+            window.location.href= "/pages/sign_in.html";
 
         }
         else {
