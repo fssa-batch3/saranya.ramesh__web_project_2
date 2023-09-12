@@ -1,14 +1,14 @@
 const root = window.location.origin;
-const categoryList = `${root}/Saran's project/pages/product_list.html`;
+const categoryList = `${root}/pages/product_list.html`;
 
 const BeforeLogin = `
 <div class="nav_1">
 <div class="header-img">
-    <img src="${root}/Saran's project/assets/img/MissNatura_logo.png" alt="header_logo">
+    <img src="${root}/assets/img/MissNatura_logo.png" alt="header_logo">
 </div>
 <div class="Navigation">
     <ul>
-        <li> <a href="${root}/Saran's project/index.html">Home</a></li>
+        <li> <a href="${root}/index.html">Home</a></li>
         <li>
             <div class="dropdown">
       <p class="dropbtn">Shop</p>
@@ -22,7 +22,7 @@ const BeforeLogin = `
         </li>
         <li><a href=""> Contact us</a></li>
         <li><a href="">About us</a> </li>
-        <a href="/Saran's project/pages/Signup page.html"><button id="button">Sign Up</button></a> 
+        <a href="/pages/Signup page.html"><button id="button">Sign Up</button></a> 
     </ul>
 </div>
 </div>
@@ -31,11 +31,11 @@ const BeforeLogin = `
 const AfterLogin = `
 <div class="nav_1">
 <div class="header-img">
-    <img src="${root}/Saran's project/assets/img/MissNatura_logo.png" alt="header_logo">
+    <img src="${root}/assets/img/MissNatura_logo.png" alt="header_logo">
 </div>
 <div class="Navigation">
     <ul>
-        <li> <a href="${root}/Saran's project/index.html">Home</a></li>
+        <li> <a href="${root}/index.html">Home</a></li>
         <li>
         <div class="dropdown">
         <p class="dropbtn">Shop</p>
@@ -48,10 +48,10 @@ const AfterLogin = `
         </li>
         <li><a href=""> Contact us</a></li>
         <li><a href="">About us</a> </li>
-        <li><a href="${root}/Saran's project/pages/wishlist.html"><i class="fa-regular fa-heart"></i></a></li>
+        <li><a href="${root}/pages/wishlist.html"><i class="fa-regular fa-heart"></i></a></li>
         <li><a href=""><i class="fa-solid fa-wallet"></i></a></li>
-        <li><a href="${root}/Saran's project/pages/profile.html"><i class="fa-solid fa-user"></i></a></li>
-        <li><a href="${root}/Saran's project/pages/add_to_cart.html"> <i class="fa-solid fa-cart-shopping"></i></a></li>
+        <li><a href="${root}/pages/profile.html"><i class="fa-solid fa-user"></i></a></li>
+        <li><a href="${root}/pages/add_to_cart.html"> <i class="fa-solid fa-cart-shopping"></i></a></li>
         <button id="logout" type="submit">Logout</button>
     </ul>
 </div>
@@ -65,7 +65,7 @@ if (UniqueId1) {
   logout?.addEventListener("click", () => {
     alert("Are you sure, Do you want Logout?")
     localStorage.removeItem("unique_id");
-    window.location.href="/Saran's project/index.html"
+    window.location.href="/index.html"
     // document.body.innerHTML = BeforeLogin;
   });
 
